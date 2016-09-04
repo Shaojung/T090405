@@ -5,6 +5,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -62,6 +66,27 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         Log.d("READFILE", sb.toString());
+
+    }
+
+    public void clickShowJSON(View v)
+    {
+        JSONObject obj1 = new JSONObject();
+        JSONObject obj2 = new JSONObject();
+        JSONArray array = new JSONArray();
+        try {
+            obj1.put("name", "Bob");
+            obj1.put("tel", "123");
+            obj2.put("name", "Mary");
+            obj2.put("tel", "456");
+            Log.d("OBJ1", obj1.toString());
+            array.put(obj1);
+            array.put(obj2);
+            Log.d("array", array.toString());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
 
     }
 }
